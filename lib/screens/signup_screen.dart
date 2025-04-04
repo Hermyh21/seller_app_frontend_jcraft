@@ -337,7 +337,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
               children: [
                 SizedBox(height: 60),
                 Center(
-                  child: Text("Create  Account",
+                  child: Text("Create an Account",
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
                 ),

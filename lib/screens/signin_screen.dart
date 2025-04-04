@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'signup_screen.dart'; // Import Sign Up screen
+import 'buyer_page.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -93,7 +94,10 @@ class _SignInScreenState extends State<SignInScreen> {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle sign-in logic
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => BuyerPage()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.brown,
