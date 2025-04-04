@@ -1,119 +1,132 @@
 import 'package:flutter/material.dart';
+import 'notification_screen.dart';
 
 class BuyerPage extends StatelessWidget {
   const BuyerPage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    CircleAvatar(
-                      backgroundImage: AssetImage('assets/images/profile.jpg'),
-                    ),
-                    SizedBox(width: 10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Hello!",
-                            style: TextStyle(color: Colors.grey, fontSize: 14)),
-                      ],
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Icon(Icons.notifications, color: Colors.black),
-                    SizedBox(width: 20),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(height: 20),
-// Search Bar
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 10),
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Search here",
-                  prefixIcon: Icon(Icons.search),
-                ),
-              ),
-            ),
-            SizedBox(height: 20),
-
-            // Category Section
-            Text("Category",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                CategoryIcon(icon: Icons.chair),
-                CategoryIcon(icon: Icons.event_seat),
-                CategoryIcon(icon: Icons.event_seat),
-                CategoryIcon(icon: Icons.table_chart),
-              ],
-            ),
-
-            SizedBox(height: 20),
-            // Product Filters
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("Your Products",
-                    style:
-                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                // Text("View Less", style: TextStyle(color: Colors.brown)),
-              ],
-            ),
-            SizedBox(height: 10),
-
-            // Filter Buttons
-            Row(
-              children: [
-                FilterButton(label: "All", selected: false),
-                FilterButton(label: "Newest", selected: true),
-                FilterButton(label: "Popular", selected: false),
-              ],
-            ),
-            SizedBox(height: 20),
-
-            // Product List
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ProductCard(
-                      name: "Barcuma",
-                      price: "140 Birr",
-                      rating: 4.5,
-                      image: "assets/images/barcuma.png"),
-                  ProductCard(
-                      name: "Duka",
-                      price: "110 Birr",
-                      rating: 4.0,
-                      image: "assets/images/duka.png"),
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundImage:
+                            AssetImage('assets/images/profile.jpg'),
+                      ),
+                      SizedBox(width: 10),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Hello!",
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 14)),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      IconButton(
+                        icon: Icon(Icons.notifications, color: Colors.black),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NotificationsPage()),
+                          );
+                        },
+                      ),
+                      SizedBox(width: 20),
+                    ],
+                  ),
                 ],
               ),
-            ),
-          ],
+              SizedBox(height: 20),
+// Search Bar
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Colors.grey[200],
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: TextField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: "Search here",
+                    prefixIcon: Icon(Icons.search),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+
+              // Category Section
+              Text("Category",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  CategoryIcon(icon: Icons.chair),
+                  CategoryIcon(icon: Icons.event_seat),
+                  CategoryIcon(icon: Icons.event_seat),
+                  CategoryIcon(icon: Icons.table_chart),
+                ],
+              ),
+
+              SizedBox(height: 20),
+              // Product Filters
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Your Products",
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                  // Text("View Less", style: TextStyle(color: Colors.brown)),
+                ],
+              ),
+              SizedBox(height: 10),
+
+              // Filter Buttons
+              Row(
+                children: [
+                  FilterButton(label: "All", selected: false),
+                  FilterButton(label: "Newest", selected: true),
+                  FilterButton(label: "Popular", selected: false),
+                ],
+              ),
+              SizedBox(height: 20),
+
+              // Product List
+              Expanded(
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  children: [
+                    ProductCard(
+                        name: "Barcuma",
+                        price: "140 Birr",
+                        rating: 4.5,
+                        image: "assets/images/barcuma.png"),
+                    ProductCard(
+                        name: "Duka",
+                        price: "110 Birr",
+                        rating: 4.0,
+                        image: "assets/images/duka.png"),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
 
@@ -161,7 +174,7 @@ class FilterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 10),
+      // margin: EdgeInsets.only(right: 10),
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         color: selected ? Colors.brown : Colors.white,
