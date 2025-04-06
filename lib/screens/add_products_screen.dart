@@ -248,7 +248,7 @@ class _AddProductsPageState extends State<AddProductsPage> {
       String label, TextEditingController controller, String unit) {
     return Row(
       children: [
-        Container(width: 80, child: Text(label)),
+        SizedBox(width: 80, child: Text(label)),
         Expanded(
           child: TextField(
             controller: controller,
@@ -266,10 +266,11 @@ class _AddProductsPageState extends State<AddProductsPage> {
             }).toList(),
             onChanged: (String? newValue) {
               setState(() {
-                if (unit == "cm")
+                if (unit == "cm") {
                   selectedHeightUnit = newValue!;
-                else
+                } else {
                   selectedWidthUnit = newValue!;
+                }
               });
             },
           ),
