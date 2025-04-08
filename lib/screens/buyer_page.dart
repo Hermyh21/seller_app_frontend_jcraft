@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'notification_screen.dart';
 import 'product_details_screen.dart';
+import 'add_products_screen.dart';
 
 class BuyerPage extends StatelessWidget {
   const BuyerPage({super.key});
@@ -215,12 +216,12 @@ class ProductCard extends StatelessWidget {
   final double rating;
   final String image;
   const ProductCard({
-    Key? key,
+    super.key,
     required this.name,
     required this.price,
     required this.rating,
     required this.image,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

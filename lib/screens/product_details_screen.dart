@@ -7,12 +7,12 @@ class ProductDetailsPage extends StatelessWidget {
   final String image;
 
   const ProductDetailsPage({
-    Key? key,
+    super.key,
     required this.name,
     required this.price,
     required this.rating,
     required this.image,
-  }) : super(key: key);
+  });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
